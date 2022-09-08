@@ -1,0 +1,5 @@
+INPUT = test/
+FILE_PATTERNS = "output-*.h"
+EXTRACT_ALL = YES
+GENERATE_LATEX = NO
+
