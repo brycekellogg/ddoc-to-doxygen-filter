@@ -1,0 +1,85 @@
+start: BLOCK_START_JAVADOC doxygen  BLOCK_END
+
+doxygen: brief? description? section*
+
+brief: " "
+description: " "
+
+section: params
+       | returns
+       | note
+       | examples
+       | bugs
+       | deprecated
+       | standards
+       | throws
+       | see
+       | version
+       | license
+       | date
+       | authors
+       | copyright
+
+sectioncontent.0: /.+\n.+/
+sectionlinecontent.0: /.*\n/
+
+
+// Section definitions
+params     .1: SECTION_HEADER_PARAMS      sectionlinecontent+ NEWLINE?
+returns    .1: SECTION_HEADER_RETURNS     sectionlinecontent+
+note       .1: SECTION_HEADER_NOTE        sectionlinecontent+
+examples   .1: SECTION_HEADER_EXAMPLES    sectionlinecontent+
+bugs       .1: SECTION_HEADER_BUGS        sectionlinecontent+
+deprecated .1: SECTION_HEADER_DEPRECATED  sectionlinecontent+
+standards  .1: SECTION_HEADER_STANDARDS   sectionlinecontent+
+throws     .1: SECTION_HEADER_THROWS      sectionlinecontent+
+see        .1: SECTION_HEADER_SEE         sectionlinecontent+
+version    .1: SECTION_HEADER_VERSION     sectionlinecontent+ NEWLINE?
+license    .1: SECTION_HEADER_LICENSE     sectionlinecontent+
+date       .1: SECTION_HEADER_DATE        sectionlinecontent+ NEWLINE?
+authors    .1: SECTION_HEADER_AUTHORS     sectionlinecontent+
+copyright  .1: SECTION_HEADER_COPYRIGHT   sectionlinecontent+ NEWLINE?
+
+section_header_params:     SECTION_HEADER_PARAMS
+section_header_returns:    SECTION_HEADER_RETURNS
+section_header_note:       SECTION_HEADER_NOTE
+section_header_examples:   SECTION_HEADER_EXAMPLES
+section_header_bugs:       SECTION_HEADER_BUGS
+section_header_deprecated: SECTION_HEADER_DEPRECATED
+section_header_standards:  SECTION_HEADER_STANDARDS
+section_header_throws:     SECTION_HEADER_THROWS
+section_header_see:        SECTION_HEADER_SEE
+section_header_version:    SECTION_HEADER_VERSION
+section_header_license:    SECTION_HEADER_LICENSE
+section_header_date:       SECTION_HEADER_DATE
+section_header_authors:    SECTION_HEADER_AUTHORS
+section_header_copyright:  SECTION_HEADER_COPYRIGHT
+
+// Section headers
+SECTION_HEADER_PARAMS:     "Params:"
+SECTION_HEADER_RETURNS:    "Returns:"
+SECTION_HEADER_NOTE:       "Note"
+SECTION_HEADER_EXAMPLES:   "Examples:"
+SECTION_HEADER_BUGS:       "Bugs:"
+SECTION_HEADER_DEPRECATED: "Deprecated:"
+SECTION_HEADER_STANDARDS:  "Standards:"
+SECTION_HEADER_THROWS:     "Throws:"
+SECTION_HEADER_SEE:        "See Also:"
+SECTION_HEADER_VERSION:    "@version @par"
+SECTION_HEADER_LICENSE:    "License:"
+SECTION_HEADER_DATE:       "@date @par\n"
+SECTION_HEADER_AUTHORS:    "Authors:"
+SECTION_HEADER_COPYRIGHT:  "@copyright @par"
+
+
+BLOCK_START_JAVADOC: "/**\n"
+BLOCK_START_QT: "/*!"
+BLOCK_END: " */\n"
+BLOCK_BLANK_LINE: " *\n"
+
+NEWLINE: CR? LF
+
+WHITESPACE: /[ \t\f\r]/+
+
+%import common.CR
+%import common.LF

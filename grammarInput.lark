@@ -1,0 +1,74 @@
+start: (comment_block | paragraph | NEWLINE)*
+comment_block.1: WHITESPACE* BLOCK_START_JAVADOC comment_contents WHITESPACE* BLOCK_END
+comment_contents: section_brief? section_desc? section*
+
+BLOCK_START_JAVADOC: "/**\n"
+BLOCK_START_QT: "/*!"
+BLOCK_END: "*/\n"
+BLOCK_BLANK_LINE: " *\n"
+
+section_brief: " "
+section_desc: " "
+
+section: section_standard
+section_params: " "
+section_standard: section_header section_content
+section_header.1: header_returns
+                | header_note
+                | header_examples
+                | header_bugs
+                | header_deprecated
+                | header_standards
+                | header_throws
+                | header_see
+                | header_version
+                | header_license
+                | header_date
+                | header_authors
+                | header_copyright
+
+
+section_content: TEXT? NEWLINE (paragraph | codeblock | NEWLINE)*
+
+paragraph: (TEXT NEWLINE)*
+codeblock: "???"
+
+header_params:     WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_PARAMS
+header_returns:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_RETURNS
+header_note:       WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_NOTE
+header_examples:   WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_EXAMPLES
+header_bugs:       WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_BUGS
+header_deprecated: WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_DEPRECATED
+header_standards:  WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_STANDARDS
+header_throws:     WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_THROWS
+header_see:        WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_SEE
+header_version:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_VERSION
+header_license:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_LICENSE
+header_date:       WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_DATE
+header_authors:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_AUTHORS
+header_copyright:  WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_COPYRIGHT
+
+// Section headers
+SECTION_HEADER_PARAMS:     "Params:"
+SECTION_HEADER_RETURNS:    "Returns:"
+SECTION_HEADER_NOTE:       "Note"
+SECTION_HEADER_EXAMPLES:   "Examples:"
+SECTION_HEADER_BUGS:       "Bugs:"
+SECTION_HEADER_DEPRECATED: "Deprecated:"
+SECTION_HEADER_STANDARDS:  "Standards:"
+SECTION_HEADER_THROWS:     "Throws:"
+SECTION_HEADER_SEE:        "See Also:"
+SECTION_HEADER_VERSION:    "Version:"
+SECTION_HEADER_LICENSE:    "License:"
+SECTION_HEADER_DATE:       "Date:"
+SECTION_HEADER_AUTHORS:    "Authors:"
+SECTION_HEADER_COPYRIGHT:  "Copyright:"
+
+TEXT: /.+/
+ASTERISK: "*"
+SLASH: "/"
+NEWLINE: CR? LF
+WHITESPACE: /[ \t\f\r]/+
+
+%import common.CR
+%import common.LF
