@@ -1,0 +1,82 @@
+start: (comment_block | paragraph | NEWLINE)*
+
+// ???
+comment_block.1: comment_start comment_contents comment_end
+comment_contents: section_brief? section_desc? section*
+comment_start: WHITESPACE* SLASH ASTERISK (ASTERISK | EXCLAMATION) ASTERISK* (NEWLINE | WHITESPACE)
+comment_end: WHITESPACE* ASTERISK+ SLASH
+
+// ???
+section_brief: paragraph
+section_desc.1: paragraph+
+
+// ???
+section: section_standard
+section_params: " "
+section_standard: section_header section_content
+section_header.1: header_returns
+                | header_note
+                | header_examples
+                | header_bugs
+                | header_deprecated
+                | header_standards
+                | header_throws
+                | header_see
+                | header_version
+                | header_license
+                | header_date
+                | header_authors
+                | header_copyright
+
+
+section_content: TEXT? NEWLINE (paragraph | codeblock | NEWLINE)*
+
+paragraph: line+ WHITESPACE* ASTERISK? NEWLINE
+line: TEXT NEWLINE
+codeblock: codeblock_start codeblock_end
+
+codeblock_start:WHITESPACE* ASTERISK? WHITESPACE* TICK~3 TICK* NEWLINE
+codeblock_end:WHITESPACE* ASTERISK? WHITESPACE* TICK~3 TICK* NEWLINE
+
+// ???
+header_params:     WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_PARAMS
+header_returns:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_RETURNS
+header_note:       WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_NOTE
+header_examples:   WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_EXAMPLES
+header_bugs:       WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_BUGS
+header_deprecated: WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_DEPRECATED
+header_standards:  WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_STANDARDS
+header_throws:     WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_THROWS
+header_see:        WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_SEE
+header_version:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_VERSION
+header_license:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_LICENSE
+header_date:       WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_DATE
+header_authors:    WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_AUTHORS
+header_copyright:  WHITESPACE* ASTERISK? WHITESPACE* SECTION_HEADER_COPYRIGHT
+
+// ???
+%declare SECTION_HEADER_PARAMS
+%declare SECTION_HEADER_RETURNS
+%declare SECTION_HEADER_NOTE
+%declare SECTION_HEADER_EXAMPLES
+%declare SECTION_HEADER_BUGS
+%declare SECTION_HEADER_DEPRECATED
+%declare SECTION_HEADER_STANDARDS
+%declare SECTION_HEADER_THROWS
+%declare SECTION_HEADER_SEE
+%declare SECTION_HEADER_VERSION
+%declare SECTION_HEADER_LICENSE
+%declare SECTION_HEADER_DATE
+%declare SECTION_HEADER_AUTHORS
+%declare SECTION_HEADER_COPYRIGHT
+
+TICK: "`"
+TEXT: /.+/
+ASTERISK: "*"
+EXCLAMATION: "!"
+SLASH: "/"
+NEWLINE: CR? LF
+WHITESPACE: /[ \t\f\r]/+
+
+%import common.CR
+%import common.LF

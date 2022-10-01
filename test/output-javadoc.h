@@ -1,5 +1,4 @@
 /**
- * @brief
  * Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
  * tempor incididunt ut labore et dolore magna aliqua. Nec ultrices dui
  * sapien eget mi proin sed.
@@ -32,76 +31,64 @@
  * | dictumst      | quisque          |
  * | sagittis      | purus sit.       |
  *
- * @code{C}
+ * ```C
  * // Consectetur adipiscing elit pellentesque
  * // habitant morbi tristique senectus.
  * int var = this->func(12);
- * @endcode
+ * ```
  *
- * @param arg0 facilisis gravida neque convallis a cras semper.
- * @param arg1 Risus viverra adipiscing at in tellus integer. Interdum velit
- *             euismod in pellentesque massa placerat duis ultricies lacus.
+ * Params:
+ *    arg0 = facilisis gravida neque convallis a cras semper.
+ *    arg1 = Risus viverra adipiscing at in tellus integer. Interdum velit
+ *           euismod in pellentesque massa placerat duis ultricies lacus.
  *
- * @param arg2 In tellus integer feugiat scelerisque varius morbi enim.
- * @param arg3 Venenatis cras sed felis eget velit aliquet sagittis.
- *             Ullamcorper eget nulla facilisi etiam dignissim diam
- *             quis enim.
+ *    arg2 = In tellus integer feugiat scelerisque varius morbi enim.
+ *    arg3 = Venenatis cras sed felis eget velit aliquet sagittis.
+ *           Ullamcorper eget nulla facilisi etiam dignissim diam
+ *           quis enim.
  *
- * @returns @parblock
- *          Dui accumsan sit amet nulla facilisi morbi. Sit amet
+ * Returns: Dui accumsan sit amet nulla facilisi morbi. Sit amet
  *          consectetur adipiscing elit ut aliquam purus.
- * @endparblock
  *
- * @note @parblock
- *       Diam quis enim lobortis scelerisque fermentum dui. Pellentesque
+ *
+ * Note: Diam quis enim lobortis scelerisque fermentum dui. Pellentesque
  *       id nibh tortor id aliquet lectus proin. Nunc sed id semper risus.
- * @endparblock
  *
- * @par Examples
- * @parblock
- *           Id aliquet risus feugiat in ante metus. Urna neque viverra
+ * Examples: Id aliquet risus feugiat in ante metus. Urna neque viverra
  *           justo nec ultrices dui sapien eget.
  *
- * @code
+ * ---------------------------
  * int res = a->fun1(12, 10);
  * if (res < 0) {
  *     // do something
  * }
- * @endcode
+ * ---------------------------
  *
  *  Orci eu lobortis elementum nibh tellus. Aliquam nulla
  *  facilisi cras fermentum. Ultrices gravida dictum fusce
  *  ut placerat orci nulla pellentesque.
  *
- * @code
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~
  * int x = y*y;
- * @endcode
- * @endparblock
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~
  *
- * @bug @parblock
- *       Cursus in hac habitasse platea dictumst quisque. Eget nunc
+ * Bugs: Cursus in hac habitasse platea dictumst quisque. Eget nunc
  *       scelerisque viverra mauris in aliquam sem fringilla. Enim
  *       praesent elementum facilisis leo vel fringilla est ullamcorper.
  *
  *       Magna etiam tempor orci eu lobortis elementum. Etiam non quam
  *       lacus suspendisse faucibus. Ultrices sagittis orci a
  *       scelerisque purus.
- * @endparblock
  *
- * @deprecated @parblock
- *             Orci eu lobortis elementum nibh tellus. Aliquam nulla
+ * Deprecated: Orci eu lobortis elementum nibh tellus. Aliquam nulla
  *             facilisi cras fermentum. Ultrices gravida dictum fusce
  *             ut placerat orci nulla pellentesque.
  *
  *             Magna etiam tempor orci eu lobortis elementum. Etiam non quam
  *             lacus suspendisse faucibus. Ultrices sagittis orci a
  *             scelerisque purus.
- * @endparblock
  *
- * @par Standards
- * @parblock
- *            Sodales neque sodales ut etiam sit amet nisl purus.
- * @endparblock
+ * Standards: Sodales neque sodales ut etiam sit amet nisl purus.
  *
  * @par Exceptions
  * @parblock
@@ -110,37 +97,24 @@
  *         Magna etiam tempor orci eu lobortis elementum. Etiam non quam
  *         lacus suspendisse faucibus. Ultrices sagittis orci a
  *         scelerisque purus.
- * @endparblock
  *
- * @see @parblock
- *           [htp://example.com](Tempus iaculis urna id volutpat lacus
+ * @endparblock
+ * See Also: [htp://example.com](Tempus iaculis urna id volutpat lacus
  *           laoreet non curabitur).
- * @endparblock
  *
- * @version @parblock
- *          1.0
- * @endparblock
+ * Version: 1.0
  *
- * @par License
- * @parblock
- *          MIT
- * @endparblock
+ * License: MIT
  *
- * @date @parblock
- *       September 5, 2022
- * @endparblock
+ * Date: September 5, 2022
  *
- * @authors @parblock
- *          Bryce Kellogg
+ * Authors: Bryce Kellogg
  *
  *          Magna etiam tempor orci eu lobortis elementum. Etiam non quam
  *          lacus suspendisse faucibus. Ultrices sagittis orci a
  *          scelerisque purus.
- * @endparblock
  *
- * @copyright @parblock
- *            (c) 2022 Bryce Kellogg
- * @endparblock
+ * Copyright: (c) 2022 Bryce Kellogg
  */
 int fun1(int arg0, int arg1, int arg2, int arg3);
 

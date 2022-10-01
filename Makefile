@@ -5,7 +5,7 @@ test: filter.py ${OUTPUTS}
 
 output-%.h: input-%.h target-%.h
 	@echo "Processing $<"
-	@./filter.py $< > $@
+	@./filter.py $<  > $@
 	@echo "Diffing $^"
 	@diff $^
 
